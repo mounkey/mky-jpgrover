@@ -2,6 +2,7 @@ import { Component } from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import logo from '../logo.svg';
 import M from 'materialize-css';
+import Cart from './CartWidget';
 
 export default class Navbar extends Component {
   componentDidMount(){
@@ -20,15 +21,18 @@ export default class Navbar extends Component {
               <li><a href="#!">Como comprar</a></li>     
               <li><a href= "#!">Licencias</a></li>
               <li><a href= "#!">Juegos</a></li>
+              <li> <Cart NumberSell={5}/></li>
             </ul>
           </div>
         </nav>
 
         <ul className='sidenav red ' id="mobile-demo">
-          <li><a href="#!">Index</a></li>
-          <li><a href="#!">Como comprar</a></li>     
-          <li><a href= "#!">Licencias</a></li>
-          <li><a href= "#!">Juegos</a></li>
+        <a href="#!" className='brand-logo'><img src={logo} className="App-logo2" alt="logo" /></a>
+          <li><a className='white-text' href="#!">Index</a></li>
+          <li><a className='white-text' href="#!">Como comprar</a></li>     
+          <li><a className='white-text' href= "#!">Licencias</a></li>
+          <li><a className='white-text' href= "#!">Juegos</a></li>
+          <li className='white-text'> <Cart NumberSell={5}/></li>
         </ul>
       </>
     );

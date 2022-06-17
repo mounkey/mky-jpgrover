@@ -42,3 +42,13 @@
     transform: rotate(360deg);
   }
 }
+
+.CartSell{
+  width: 10%;
+}
+
+.NumSell{
+  background-color: black;
+  color:whiteM;
+  border-radius: 25px;
+}
