@@ -1,3 +1,4 @@
+import React from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import '../App.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';

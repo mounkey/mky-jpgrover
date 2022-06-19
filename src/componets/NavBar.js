@@ -1,3 +1,4 @@
+import React from 'react';
 import { Component } from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import logo from '../logo.svg';
@@ -32,7 +33,7 @@ export default class Navbar extends Component {
           <li><a className='white-text' href="#!">Como comprar</a></li>     
           <li><a className='white-text' href= "#!">Licencias</a></li>
           <li><a className='white-text' href= "#!">Juegos</a></li>
-          <li className='white-text'> <Cart NumberSell={5}/></li>
+          <li><Cart NumberSell={5}/></li>
         </ul>
       </>
     );
