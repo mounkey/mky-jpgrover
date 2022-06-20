@@ -1,0 +1,50 @@
+*{
+  /*REM relativo a la fuente del computador
+  EM relativo a la fuente del proyectyo
+  */
+  margin: 0;
+  /*elimina border y padding*/
+  box-sizing: border-box;
+  @font-face {
+    font-family: openSansLigth;
+    src: url("../fonts/Open_Sans/static/OpenSans/openSansLigth.ttf");
+  }
+}
+
+/*index*/
+
+.imgIndex{
+  margin-top: 120px;
+}
+
+.textIndex{
+  margin-top: 50px;
+  margin-bottom: 130px;
+  font-size: 20px;
+  color:black;
+}
+.fotos{
+  width:300px;
+  border-radius: 80px;
+}
+footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+/*Web Index*/
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px ;
+  padding-left: 40px;
+}
+
+.logo2{
+  width: 10em;
+  border-radius: 25px;  
+}
