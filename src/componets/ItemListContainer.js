@@ -6,14 +6,13 @@ import {faGlobe} from '@fortawesome/free-solid-svg-icons';
 
 
 const ItemListContainer =() =>  {
-  const [masVendido]= useState(['Windows 11', 'Windows 10', 'Office 365', 'Office 2022']); 
-  console.log(masVendido);
+  const [masVendido]= useState([{id: 1, prod: 'Windows 11'}, {id: 2, prod: 'Windows 10'}, {id:3, prod: 'Microsoft 365'}, {id: 4, prod: 'Office 2022'}])
   return(
     <div className="listado">
       <ul className="list">
         {
           masVendido.map((items) => (
-            <li key ={items.id} ><a href="#!" > <FontAwesomeIcon icon={faGlobe}/> {items}</a></li>
+            <li key ={items.id} ><a href="#!" > <FontAwesomeIcon icon={faGlobe}/> {items.prod}</a></li>
           ))
         }
       </ul>
