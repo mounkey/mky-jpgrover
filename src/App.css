@@ -72,3 +72,17 @@
   text-align:right;
   padding-right: 5px;
 }
+
+.parent{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.child{
+  flex: 1 0 21%; /* explanation below */
+  margin: 5px;
+  height: 100px;
+  background-color: grey;
+  margin-bottom: 15px;
+}

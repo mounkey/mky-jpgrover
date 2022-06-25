@@ -1,35 +1,37 @@
-import React, { useState } from "react";
+import React from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import '../App.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {faMinus} from '@fortawesome/free-solid-svg-icons';
-import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
+import {faPowerOff} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
 
 
-const itemCount = ({stock, initial}) => {
-  const [contador, setContador] = useState(0);
+const ItemCount = ({stock, initial = 3, onAdd}) => {
+  const [contador, setContador] = useState(initial)
+
   
   const sumar = () => {
     setContador(contador + 1);
-    avisar(contador);
+    
   }
 
   const restar= () => {
     setContador(contador -1);
-    avisar(contador)
   }
 
   const reset = () =>{
     setContador(1);
+
   }
 
-  const avisar = (contador) => {
-    if(contador >= 0 ){
-      return 'Tu pedido va en camino';
+  const avisar = () => {
+    if(setContador >= 0 ){
+      
     }
     else{
-      return 'No podemos enviar su envio no hay stock';
+      alert('No podemos enviar su envio no hay stock');
     }
 
   }
@@ -42,4 +44,5 @@ const itemCount = ({stock, initial}) => {
   )
 }
 
-export default itemCount
+export default ItemCount
+
