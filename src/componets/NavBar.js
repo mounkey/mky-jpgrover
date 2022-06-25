@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import 'materialize-css/dist/css/materialize.css';
-import logo from '../logo.svg';
+import logo from '../MKY.png';
 import M from 'materialize-css';
 import Cart from './CartWidget';
 
@@ -13,7 +13,7 @@ export default class Navbar extends Component {
   render() {  
     return (
       <>
-        <nav>
+        <nav className='navMKY'>
           <div className='nav-wrapper'>
             <a href="#!" className='brand-logo'><img src={logo} className="App-logo2" alt="logo" /></a>
             <a href="#!" data-target="mobile-demo" className='sidenav-trigger'><i className='material-icons'>menu</i></a>

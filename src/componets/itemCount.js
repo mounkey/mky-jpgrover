@@ -6,6 +6,7 @@ import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {faMinus} from '@fortawesome/free-solid-svg-icons';
 import {faPowerOff} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import logo from '../logo.svg';
 
 
 const ItemCount = ({stock, initial = 3, onAdd}) => {
@@ -26,7 +27,7 @@ const ItemCount = ({stock, initial = 3, onAdd}) => {
 
   }
 
-  const avisar = () => {
+  const avisarStock = () => {
     if(setContador >= 0 ){
       
     }
@@ -38,8 +39,11 @@ const ItemCount = ({stock, initial = 3, onAdd}) => {
 
   return(
     <>
-      <h1>Articulo</h1><article>[contador]</article><button onClick={sumar}><FontAwesomeIcon icon ={faPlus}/> Agregar</button><button onClick={restar}><FontAwesomeIcon icon={faMinus}/>disminuir</button><button onClick={reset}><FontAwesomeIcon icon={faPowerOff}/>Restablecer</button><br/><h2>{avisar(stock, initial)}</h2>
-
+      <img src={logo} className="itemImg" alt="logo" />
+      <article>[contador]</article>
+      <div className="buttonCount">
+        <button onClick={sumar}><FontAwesomeIcon icon ={faPlus}/></button><button onClick={restar}><FontAwesomeIcon icon={faMinus}/></button><button onClick={reset}><FontAwesomeIcon icon={faPowerOff}/></button><br/><h2>{avisarStock}</h2>
+      </div>
     </>
   )
 }

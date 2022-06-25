@@ -10,7 +10,7 @@
 .App-logo2{
   height: 10vmin;
   pointer-events: none;
-  
+  margin-top: 1.8vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -41,6 +41,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navMKY{
+  margin-top: 10px;
+  background-color: #B04823;
 }
 
 .CartSell{
@@ -82,7 +87,27 @@
 .child{
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
-  height: 100px;
-  background-color: grey;
+  max-heightgit : 250px;
+  background-color: #FAFAFF;
+  border-radius: 10px;
   margin-bottom: 15px;
+}
+
+.child > a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px;
+  text-align: right;
+  font-size: 15px;
+}
+
+.itemImg{
+  width: 40%;
+  border-radius: 10px;
+}
+
+.buttonCount > button{
+   border-radius: 10px;
+   margin-right: 5px;
 }
