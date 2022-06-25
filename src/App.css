@@ -87,7 +87,7 @@
 .child{
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
-  max-heightgit : 250px;
+  max-height : 250px;
   background-color: #FAFAFF;
   border-radius: 10px;
   margin-bottom: 15px;
