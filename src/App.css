@@ -87,10 +87,11 @@
 .child{
   flex: 1 0 21%; /* explanation below */
   margin: 5px;
-  max-height : 250px;
+  max-height : 350px;
   background-color: #FAFAFF;
   border-radius: 10px;
   margin-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .child > a {

@@ -8,13 +8,16 @@ import Count from './itemCount';
 
 const ItemListContainer =() =>  {
   const [swSell,setSwSell] = useState([{id: 1, prod: 'Windows 11'}, {id: 2, prod: 'Windows 10'}, {id:3, prod: 'Microsoft 365'}, {id: 4, prod: 'Office 2022'}])
+  const mensaje = () => {
+    alert ('Gracias por su compra');
+  }
   return(
     <div className="parent">
       {
         swSell.map((item) =>(
           <div className="child" key={item.id}>
             <a href="#!"> <FontAwesomeIcon icon={faGlobe}/> {item.prod} </a>
-            <Count/>
+            <Count stock={5} onAdd={mensaje}/>
           </div>
         ))
       }
