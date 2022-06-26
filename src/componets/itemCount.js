@@ -14,12 +14,13 @@ const ItemCount = ({stock, initial = 3, onAdd}) => {
 
   
   const sumar = () => {
-    setContador(contador + 1);
-    
+    setContador(contador + 1)
+    avisarStock();
   }
 
   const restar= () => {
     setContador(contador -1);
+
   }
 
   const reset = () =>{
@@ -30,9 +31,10 @@ const ItemCount = ({stock, initial = 3, onAdd}) => {
   const avisarStock = () => {
     if(setContador >= 0 ){
       
-    }
+    } 
     else{
       alert('No podemos enviar su envio no hay stock');
+      
     }
 
   }
@@ -40,10 +42,11 @@ const ItemCount = ({stock, initial = 3, onAdd}) => {
   return(
     <>
       <img src={logo} className="itemImg" alt="logo" />
-      <article>[contador]</article>
+      <article>{contador}</article>
       <div className="buttonCount">
         <button onClick={sumar}><FontAwesomeIcon icon ={faPlus}/></button><button onClick={restar}><FontAwesomeIcon icon={faMinus}/></button><button onClick={reset}><FontAwesomeIcon icon={faPowerOff}/></button><br/><h2>{avisarStock}</h2>
       </div>
+      <button onClick={onAdd}>Agregar al carrito</button>
     </>
   )
 }
