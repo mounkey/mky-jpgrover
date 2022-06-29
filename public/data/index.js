@@ -1,0 +1,11 @@
+const productsInitial=[
+    {id: 1, name: 'Windows 11', price: 1000, stock: 5, description: 'Windows 11 es una versión de Windows que se lanza en el año de 2019.', picture:'https://licenciaspccl.net/57-large_default/windows-11-pro-licencia-original-3264-bits-permanente-multilenguaje.jpg' },
+    {id: 2, name: 'Windows 10', price: 900, stock: 5, description: 'Windows 10 es una versión de Windows que se lanza en el año de 2015.', picture:'https://buffcom.net/wp-content/uploads/2021/09/September-special-discount-win10-pro.png' },
+    {id: 3, name: 'Microsoft 365', price: 800, stock: 5, description: 'Microsoft 365 es una aplicación de Microsoft que se lanza en el año de 2019.', picture:'https://dimacso.cl/wp-content/uploads/2022/03/OFFICE3652_0x500.jpg' },
+    {id: 4, name: 'Office 2022', price: 700, stock: 5, description: 'Office 2022 es una versión de Office que se lanza en el año de 2020.', picture:'https://anthoncode.com/wp-content/uploads/2020/02/logo-office-2020.png '},
+    {id: 5, name: 'Office 2019', price: 600, stock: 5, description: 'Office 2019 es una versión de Office que se lanza en el año de 2019.', picture:'https://anthoncode.com/wp-content/uploads/2020/02/logo-office-2020.png' },
+    {id: 6, name: 'Office 2018', price: 500, stock: 5, description: 'Office 2018 es una versión de Office que se lanza en el año de 2018.', picture:'https://anthoncode.com/wp-content/uploads/2020/02/logo-office-2020.png' },    
+    {id: 7, name: 'Office 2017', price: 400, stock: 5, description: 'Office 2017 es una versión de Office que se lanza en el año de 2017.', picture:'https://anthoncode.com/wp-content/uploads/2020/02/logo-office-2020.png' },
+    {id: 8, name: 'Office 2016', price: 300, stock: 5, description: 'Office 2016 es una versión de Office que se lanza en el año de 2016.', picture:'https://anthoncode.com/wp-content/uploads/2020/02/logo-office-2020.png' },
+    {id: 9, name: 'AVG Antivirus', price: 200, stock: 5, description: 'AVG Antivirus es una aplicación de AVG que se lanza en el año de 2019.', picture:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/AVG_Similar_Icon.svg/1200px-AVG_Similar_Icon.svg.png' },
+]

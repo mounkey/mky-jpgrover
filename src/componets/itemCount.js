@@ -23,8 +23,7 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
   const restar= () => {
     if(contador > 0){
       setContador(contador - 1);
-      setStock(stock + 1);
-      avisarStock();
+      setStock(stock + 1);      
     }
     else
     {
@@ -51,7 +50,7 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
 
   return(
     <>
-      <div className="left text">Stock: {stock}</div>
+      <div className=" row left text">Stock: {stock}</div>
       <img src={logo} className="itemImg" alt="logo" />
       <article>{contador}</article>
       <div className="buttonCount">
@@ -62,5 +61,4 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
   )
 }
 
-export default ItemCount
-
+export default ItemCount;
