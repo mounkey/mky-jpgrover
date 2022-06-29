@@ -14,20 +14,27 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
   const [stock, setStock] = useState(stockInitial)
 
   
-  const sumar = () => {    
+  const sumar = () => {  
     setContador(contador + 1)
     setStock(stock - 1);
     avisarStock();
   }
 
   const restar= () => {
-    setContador(contador - 1);
-    setStock(stock + 1);
-    avisarStock();
+    if(contador > 0){
+      setContador(contador - 1);
+      setStock(stock + 1);
+      avisarStock();
+    }
+    else
+    {
+      setContador(0);
+    }
   }
 
   const reset = () =>{
-    setContador(1);
+    setContador(0);
+    setStock(stockInitial);
   }
 
   const avisarStock = () => {
