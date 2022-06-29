@@ -17,7 +17,7 @@ const ItemListContainer =() =>  {
         swSell.map((item) =>(
           <div className="child" key={item.id}>
             <a href="#!"> <FontAwesomeIcon icon={faGlobe}/> {item.prod} </a>
-            <Count stock={5} onAdd={mensaje}/>
+            <Count stockInitial={5} onAdd={mensaje}/>
           </div>
         ))
       }

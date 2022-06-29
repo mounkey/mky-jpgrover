@@ -9,38 +9,42 @@ import { useState } from 'react';
 import logo from '../logo.svg';
 
 
-const ItemCount = ({stock, initial = 3, onAdd}) => {
+const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
   const [contador, setContador] = useState(initial)
+  const [stock, setStock] = useState(stockInitial)
 
   
-  const sumar = () => {
+  const sumar = () => {    
     setContador(contador + 1)
+    setStock(stock - 1);
     avisarStock();
   }
 
   const restar= () => {
-    setContador(contador -1);
-
+    setContador(contador - 1);
+    setStock(stock + 1);
+    avisarStock();
   }
 
   const reset = () =>{
     setContador(1);
-
   }
 
   const avisarStock = () => {
-    if(setContador >= 0 ){
+    if(stock > 0 ){
       
     } 
     else{
       alert('No podemos enviar su envio no hay stock');
-      
+      setStock(0);
+      setContador(contador)     
     }
 
   }
 
   return(
     <>
+      <div className="left text">Stock: {stock}</div>
       <img src={logo} className="itemImg" alt="logo" />
       <article>{contador}</article>
       <div className="buttonCount">
