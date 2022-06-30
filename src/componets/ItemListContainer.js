@@ -3,7 +3,7 @@ import '../App.css';
 import 'materialize-css/dist/css/materialize.css';  
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGlobe} from '@fortawesome/free-solid-svg-icons';
-import Count from './itemCount';
+import Count from './ItemCount';
 
 
 const ItemListContainer =() =>  {
