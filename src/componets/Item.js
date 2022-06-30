@@ -23,17 +23,19 @@ const Item =() =>  {
     });
   }, []);
 
-  return (
+  return(
     <>
     {
-      swSell.map((item) => (
-        <div id= {item.id}>
-        <h3>{item.name}</h3> - <small>{item.category}</small>
-        <img src= {item.picture} alt="Producto" className="itemImg" />
-        <p>{item.description}</p>
-        <p>{item.price}</p>
-      </div>  
-      ))   
+      swSell.map((item) => {
+        return(
+          <div id= {item.id}>
+            <h3>{item.name}</h3> - <small>{item.category}</small>
+            <img src= {item.picture} alt="Producto" className="itemImg" />
+            <p>{item.description}</p>
+            <p>{item.price}</p>
+          </div>          
+        )
+      })
     }
     </>
   )
