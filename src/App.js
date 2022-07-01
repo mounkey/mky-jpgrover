@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import 'materialize-css/dist/css/materialize.css';
-import NavBar from './componets/NavBar';
-import ItemListContainer from './componets/ItemListContainer';
-import MoreSell from './componets/ItemListMoreSell';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import MoreSell from './components/ItemListMoreSell';
 
 function App() {
   return (
