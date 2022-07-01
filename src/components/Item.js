@@ -3,7 +3,7 @@ import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
 import Count from './ItemCount';
 
-export const Item =({product}) =>  {
+export const Item =(({product}) =>  {
 
   const mensaje = () => {
     alert ('Gracias por su compra');
@@ -26,6 +26,6 @@ return (
     }
     </>
   )
-}
+});
 
 export default Item;
