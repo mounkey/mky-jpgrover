@@ -5,6 +5,8 @@ import Count from './ItemCount';
 
 export const Item =(({product}) =>  {
 
+  const [product, setProduct] = useState(product);
+
   const mensaje = () => {
     alert ('Gracias por su compra');
   }
