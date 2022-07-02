@@ -1,19 +1,24 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
 import Count from './ItemCount';
 
 export const Item =(({product}) =>  {
 
-  const [product, setProduct] = useState(product);
+  const [sellProduct, setSellProduct] = useState(product);
+
+  useEffect(() => { 
+    setSellProduct({product}); 
+  }, [product]);
 
   const mensaje = () => {
     alert ('Gracias por su compra');
   }
+
 return (
     <>
     {
-      product.map((item) => {
+      sellProduct.map((item) => {
         return(
           <Count stock={item.stock} onAdd ={mensaje} >
             <div id= {item.id}>
