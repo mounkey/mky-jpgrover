@@ -1,38 +1,28 @@
 import React from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
-import Count from './ItemCount';
 
-export const Item =(({product}) =>  {
- 
-  const mensaje = () => {
-    alert ('Gracias por su compra');
-  }
-  
+
+export const Item =(({item}) => {
+ console.log(item);
 return (
     <>
     {
-      < Count stockInitial={5} initial={0} onAdd={mensaje} >
-        <main key={product.id}>
-          <div className="row">
-            <img src="{product.image}" alt="Productos"/>
-          </div>
-          <div className="row">
-            <div className="col s6">
-              <h3>product.title</h3>
-            </div>
-            <div className="col s6">
-              <small>{product.category}</small>
-            </div>
-            <div className="col s12">
-              <p>{product.description}</p>  
-            </div>
-            <div className="col s12 left text">
-              <h5>{product.price}</h5>
-            </div>
-          </div>
-        </main>
-      </Count>
+      <div className="row product" id= {item.id}>
+        <div className="col s6 m6">
+          <a href="#!"><img src={item.image} alt="item" className="itemImg responsive-img"/></a>
+        </div>
+        <div className="col s6 m6">
+          <h5 className="itemName">{item.title}</h5>
+          <small className="itemCategory">{item.category}</small> <br/>
+          <p className="itemPrice"> ${item.price}</p>
+          <a href="#!" className="waves-effect waves-light btn">Add to Cart</a> 
+        </div>
+        <div className="col s12 m12">
+          <p className="itemDescription">{item.description}</p>
+        </div>          
+        
+      </div>      
     }
     </>
   )
