@@ -10,24 +10,21 @@ export const ItemDetailContainer = (() =>  {
   useEffect(() => {
     fetch('https://fakestoreapi.com/products/1')
       .then((res) => res.json())
-      .then((data) => {
-        setSwSell(data);
-      })
+      .then((data) => setSwSell(data))
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => console.log('finally'));
   }, []);
+
+  console.log(swSell);
+
+
   return (
     <>
-      {
-        swSell.map((itemDetail) => (
-          <div className="row col s12 m12" key={itemDetail.id}>
-             <ItemDetail item={itemDetail} />
-          </div>
-        ))
-      }
-      </>
-      );
+      <ItemDetail item={swSell} />      
+    </>
+   );
 });
 
 export default ItemDetailContainer;
