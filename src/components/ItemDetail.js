@@ -1,7 +1,7 @@
 import React from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
-import Count from './Count';
+import Count from './ItemCount';
 
 export const ItemDetail = (({item}) => {  
 
