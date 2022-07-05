@@ -4,7 +4,7 @@ import 'materialize-css/dist/css/materialize.css';
 
 
 export const Item =(({item}) => {
- console.log(item);
+ 
 return (
     <>
     {

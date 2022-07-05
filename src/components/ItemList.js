@@ -3,11 +3,8 @@ import '../App.css';
 import 'materialize-css/dist/css/materialize.css'; 
 import Item from './Item';
 
-
 export const ItemList = (() =>  {
-
-
-  
+ 
   const [swSell,setSwSell] = useState([])
 
   useEffect(() => {

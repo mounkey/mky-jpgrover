@@ -11,21 +11,18 @@ export const ItemDetailContainer = (() =>  {
     fetch('https://fakestoreapi.com/products/1')
       .then((res) => res.json())
       .then((data) => {
-        setTimeout(() => {
-          setSwSell(data);
-        }, 2000);
+        setSwSell(data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
   return (
     <>
       {
-        swSell.map((item) => (
-          <div className="row col s12 m12" key={item.id}>
-             <ItemDetail item={item} />
+        swSell.map((itemDetail) => (
+          <div className="row col s12 m12" key={itemDetail.id}>
+             <ItemDetail item={itemDetail} />
           </div>
         ))
       }
