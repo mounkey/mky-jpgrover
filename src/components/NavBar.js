@@ -12,7 +12,6 @@ const Navbar = () => {
     { name: "men's clothing", id: 2, route: "/category/men's clothing" },
     { name: "women's clothing", id: 3, route: "/category/women's clothing" },
   ];
-
    return (
       <>
         <nav className='navMKY'>
@@ -22,7 +21,13 @@ const Navbar = () => {
             <ul className='right hide-on-med-and-down'>
               <li><Link to="/">Index</Link></li>
               {
-                categories.map((category) => <li id={categories.id}><NavLink key={categories.id} to={categories.route}>{categories.name}</NavLink></li>)
+                categories.map((category) => (
+                  <li key={category.id}> 
+                    <NavLink to={category.route}>
+                      {category.name}
+                    </NavLink>
+                  </li>
+                ))
               }
               <li><Link to="/cart"> <Cart NumberSell={5}/></Link></li>
             </ul>
@@ -33,7 +38,13 @@ const Navbar = () => {
           <Link to='/' className='brand-logo'><img src={logo} className="App-logo2" alt="logo" /></Link>
           <li><Link to="/">Index</Link></li>
             {
-            categories.map((category) => <li><NavLink key={categories.id} to={categories.route}>{categories.name}</NavLink></li>)
+             categories.map((category) => (
+              <li key={category.id}> 
+                <NavLink to={category.route}>
+                  {category.name}
+                </NavLink>
+              </li>
+            ))
             }
             <li><Link to="/cart"> <Cart NumberSell={5}/></Link></li>
         </ul>

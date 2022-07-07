@@ -10,7 +10,7 @@ export const ItemDetailContainer = (() =>  {
    const [swSell,setSwSell] = useState([])
    const [cargar,setCargar] = useState(true)
 
-   const [productID] = useParams();
+   const {productID}= useParams();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${productID}`)

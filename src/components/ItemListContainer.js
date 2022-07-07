@@ -15,7 +15,7 @@ export const ItemListContainer =() =>  {
 
   useEffect(() => {
     const URL = categoryID 
-    ? `https://fakestoreapi.com/products?category=${categoryID}` 
+    ? `https://fakestoreapi.com/products/category/${categoryID}` 
     : 'https://fakestoreapi.com/products';
     fetch(URL)
       .then((res) => res.json())
@@ -28,7 +28,7 @@ export const ItemListContainer =() =>  {
       .catch((err) => {
         console.log(err);
       });
-    }, [categoryID  ]);
+    }, [categoryID]);
 
   return(
     <>

@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
+import {Link} from "react-router-dom";
 
 
 export const Item =(({item}) => {
@@ -21,7 +22,7 @@ return (
           <p>Category: {item.category}</p>
         </div>
         <div className="col s12 m12 l12">
-          <a href="#!" className="waves-effect waves-light btn">Buy</a>
+        <Link to={`/detail/${item.id}`} className="waves-effect waves-light btn">Buy</Link>
         </div>
       </div>
     </>
