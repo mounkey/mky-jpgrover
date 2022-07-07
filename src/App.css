@@ -85,13 +85,29 @@
 }
 
 .child{
-  flex: 1 0 25%; /* explanation below */
+  flex: 2 2 400px;
   margin: 5px;
-  max-height : 500px;
+  max-height : 400px;
   background-color: #FAFAFF;
   border-radius: 10px;
   margin-bottom: 15px;
   padding-bottom: 20px;
+}
+
+.child > img{
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.child > article{
+  padding-left: 10px;
+  padding-right: 10px;
+  max-height: 200px;
 }
 
 .child > a {
@@ -103,8 +119,11 @@
   font-size: 15px;
 }
 
+
+
 .itemImg{
-  width: 40%;
+  width: 200px;
+  height: 180px;
   border-radius: 10px;
 }
 

@@ -7,23 +7,23 @@ export const Item =(({item}) => {
  
 return (
     <>
-    {
-      <div className="row product" id= {item.id}>
-        <div className="col s6 m6">
-          <a href="#!"><img src={item.image} alt="item" className="itemImg responsive-img"/></a>
+      <div className="row">
+        <div>
+          <img src={item.image} alt="Product" className="itemImg"/>        
         </div>
-        <div className="col s6 m6">
-          <h5 className="itemName">{item.title}</h5>
-          <small className="itemCategory">{item.category}</small> <br/>
-          <p className="itemPrice"> ${item.price}</p>
-          <a href="#!" className="waves-effect waves-light btn">Add to Cart</a> 
+        <article className="col s12 m12 l12">
+          <small>{item.title}</small>
+        </article>
+        <div className="col s12 m6 l6 ">
+          <p> Price: {item.price}</p>
         </div>
-        <div className="col s12 m12">
-          <p className="itemDescription">{item.description}</p>
-        </div>          
-        
-      </div>      
-    }
+        <div className="col s12 m6 l6">
+          <p>Category: {item.category}</p>
+        </div>
+        <div className="col s12 m12 l12">
+          <a href="#!" className="waves-effect waves-light btn">Buy</a>
+        </div>
+      </div>
     </>
   )
 });
