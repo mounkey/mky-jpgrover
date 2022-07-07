@@ -11,10 +11,12 @@ export const ItemListContainer =() =>  {
   const [swSell,setSwSell] = useState([])
   const [cargar,setCargar] = useState(true)
 
-  const [categoryID] = useParams();
+  const {categoryID} = useParams();
 
   useEffect(() => {
-    const URL = categoryID ? `https://fakestoreapi.com/products?category=${categoryID}` : 'https://fakestoreapi.com/products';
+    const URL = categoryID 
+    ? `https://fakestoreapi.com/products?category=${categoryID}` 
+    : 'https://fakestoreapi.com/products';
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {
@@ -26,7 +28,7 @@ export const ItemListContainer =() =>  {
       .catch((err) => {
         console.log(err);
       });
-    }, [categoryID]);
+    }, [categoryID  ]);
 
   return(
     <>
