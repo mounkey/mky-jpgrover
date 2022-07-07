@@ -26,11 +26,11 @@ export const ItemListContainer =() =>  {
 
   return(
     <>
-      <div className="parent">
-        {
-          cargar ? <CircularProgress color="primary"/>:<ItemList product={swSell} />
-        }
-      </div>
+      {
+        <div className="parent">
+          {cargar ? <CircularProgress color="primary"/>:<ItemList product={swSell} />}
+        </div>
+      }
     </>
     );
   }
