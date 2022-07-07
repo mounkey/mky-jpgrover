@@ -4,13 +4,25 @@ import 'materialize-css/dist/css/materialize.css';
 import logo from '../MKY.png';
 import M from 'materialize-css';
 import Cart from './CartWidget';
+import {Link, Navlink} from 'react-router-dom';
 
-export default class Navbar extends Component {
-  componentDidMount(){
+
+const Navbar = () => {
+
+  Component = () =>{
     const elemts = document.querySelector('.sidenav');
     M.Sidenav.init(elemts, {});
   }
-  render() {  
+
+  const categories = [
+    { name: "electronics", id: 0, route: "/category/electronics" },
+    { name: "jewelery", id: 1, route: "/category/jewelery" },
+    { name: "men's clothing", id: 2, route: "/category/men's clothing" },
+    { name: "women's clothing", id: 3, route: "/category/women's clothing" },
+    
+  ];
+
+  
     return (
       <>
         <nav className='navMKY'>
@@ -38,4 +50,5 @@ export default class Navbar extends Component {
       </>
     );
   }
-}
+
+export default Navbar;

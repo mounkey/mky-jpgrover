@@ -2,6 +2,7 @@ import React from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
 import Count from './ItemCount';
+import { Link } from "react-router-dom";
 
 
 export const ItemDetail = (({item}) => {  
@@ -26,6 +27,9 @@ export const ItemDetail = (({item}) => {
               </div>
               <div className="col s12 m6">
                 <Count stockInitial={5} onAdd= {'Gracias por su compra'} />
+              </div>
+              <div className="col s12 m6">
+                <Link to="/cart" className="waves-effect waves-light btn-large">Agregar al carrito</Link>
               </div>
             </article>
         </main>
