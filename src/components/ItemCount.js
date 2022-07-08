@@ -54,7 +54,6 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
       <div className="buttonCount">
         <button onClick={sumar}><FontAwesomeIcon icon ={faPlus}/></button><button onClick={restar}><FontAwesomeIcon icon={faMinus}/></button><button onClick={reset}><FontAwesomeIcon icon={faPowerOff}/></button><br/><h2>{avisarStock}</h2>
       </div>
-      <button onClick={onAdd}>Agregar al carrito</button>
     </>
   )
 }

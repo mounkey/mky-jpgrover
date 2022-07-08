@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';  
 import ItemList from './ItemList';
-import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from "react-router-dom";
 
 
@@ -19,11 +19,7 @@ export const ItemListContainer =() =>  {
     : 'https://fakestoreapi.com/products';
     fetch(URL)
       .then((res) => res.json())
-      .then((data) => {
-        setTimeout(() => {
-          setSwSell(data);
-        }, 2000);
-      })
+      .then((data) => setSwSell(data))
       .finally(() => setCargar(false))
       .catch((err) => {
         console.log(err);
@@ -34,7 +30,7 @@ export const ItemListContainer =() =>  {
     <>
       {
         <div className="parent">
-          {cargar ? <LinearProgress color="primary"/>:<ItemList product={swSell} />}
+          {cargar ? <CircularProgress color="primary"/>:<ItemList product={swSell} />}
         </div>
       }
     </>
