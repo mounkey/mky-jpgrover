@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import 'materialize-css/dist/css/materialize.css';
 import {Link} from "react-router-dom";
-
+import Count from './ItemCount';
 
 export const Item =(({item}) => {
  
@@ -22,6 +22,7 @@ return (
           <p>Category: {item.category}</p>
         </div>
         <div className="col s12 m12 l12">
+        <Count stockInitial={5} onAdd= {'Gracias por su compra'} />
         <Link to={`/detail/${item.id}`} className="waves-effect waves-light btn">Buy</Link>
         </div>
       </div>
