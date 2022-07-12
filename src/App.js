@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Context }  from 'react';
 import './App.css';
 import 'materialize-css/dist/css/materialize.css';
 import NavBar from './components/NavBar';
@@ -6,7 +6,6 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Context } from 'react';
 import ProductContext from './components/ProductContext';
 
 function App() {
