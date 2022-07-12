@@ -24,7 +24,7 @@ const Navbar = () => {
         <nav className='navMKY'>
           <div className='nav-wrapper'>
             <Link to='/' className='brand-logo'><img src={logo} className="App-logo2" alt="logo" /></Link>
-            <a to="#" data-target="mobile-demo" className="sidenav-trigger"><i classname="material-icons">menu</i></a>
+            <link to="#!" data-target="mobile-demo" className="sidenav-trigger"><i classname="material-icons">menu</i></link>
             <ul className='right hide-on-med-and-down'>
               <li><Link to="/">Index</Link></li>
               {
