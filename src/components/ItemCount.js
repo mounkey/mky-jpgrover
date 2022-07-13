@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState} from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import '../App.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
-import {faMinus} from '@fortawesome/free-solid-svg-icons';
-import {faPowerOff} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import {faPlus, faMinus, faPowerOff} from '@fortawesome/free-solid-svg-icons';
 
 const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
   const [contador, setContador] = useState(initial)

@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import 'materialize-css/dist/css/materialize.css';
 import M from 'materialize-css/dist/js/materialize.js';
 import logo from '../MKY.png';
 import Cart from './CartWidget';
@@ -24,7 +23,7 @@ const Navbar = () => {
         <nav className='navMKY'>
           <div className='nav-wrapper'>
             <Link to='/' className='brand-logo'><img src={logo} className="App-logo2" alt="logo" /></Link>
-            <link to="#!" data-target="mobile-demo" className="sidenav-trigger"><i classname="material-icons">menu</i></link>
+            <Link to="#!" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
             <ul className='right hide-on-med-and-down'>
               <li><Link to="/">Index</Link></li>
               {
