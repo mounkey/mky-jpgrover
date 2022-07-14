@@ -43,13 +43,27 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
 
   }
 
+  const agregarAlCarrito = () => {
+    onAdd(contador);
+  }
+
   return(
     <>
       <div className=" row left text">Stock: {stock}</div>
 
       <article>{contador}</article>
       <div className="buttonCount">
-        <button onClick={sumar}><FontAwesomeIcon icon ={faPlus}/></button><button onClick={restar}><FontAwesomeIcon icon={faMinus}/></button><button onClick={reset}><FontAwesomeIcon icon={faPowerOff}/></button><br/><h2>{avisarStock}</h2>
+        <button onClick={sumar}>
+          <FontAwesomeIcon icon ={faPlus}/>
+        </button>
+        <button onClick={restar}>
+          <FontAwesomeIcon icon={faMinus}/>
+        </button>
+        <button onClick={reset}>
+          <FontAwesomeIcon icon={faPowerOff}/>
+        </button>
+        <br/><h2>{avisarStock}</h2>
+        <button onClick={agregarAlCarrito}> Agregar al carrito </button>
       </div>
     </>
   )
