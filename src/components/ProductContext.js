@@ -15,13 +15,16 @@ const ProductContext = ({ children }) => {
         {id: item.id, 
         name: item.name, 
         price: item.price,
+      }      
+    ],
+      setCantidad([...cantidad,{
+        id: item.id,
+        quantity: quantity
       }
-    ]);
+    ]));  
     }else{
       alert("EL producto ya esta en el carrito");
-   
-    }
-    setCantidad([...cantidad,{id: item.id, quantity: quantity}]); 
+    }    
    }
 
   const removeProduct = (id) => {
@@ -50,6 +53,13 @@ const ProductContext = ({ children }) => {
     cantidad.map((product) => number += product.quantity);
     return number;
   }
+
+  const totalPrice = () => {
+    let total = 0;
+    product.map((product) => total += product.price * cantidad.find((cantidad) => cantidad.id === product.id).quantity);
+    return total;
+  }
+
 
   return (
     <>
