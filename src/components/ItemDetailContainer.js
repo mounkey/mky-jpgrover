@@ -20,8 +20,7 @@ export const ItemDetailContainer = (() =>  {
       .finally(() => setCargar(false));
   }, [productID]);
 
-  console.log(swSell);
-
+  
 
   return (
     <>
