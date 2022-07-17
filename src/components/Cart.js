@@ -1,7 +1,17 @@
-import React from "react";
+import React,{ useContext } from "react";
+import 'materialize-css/dist/css/materialize.css';
+import '../App.css'
+import { contextoProducto } from "./ProductContext";
 
 const Cart = () => {
-  <h1>HOLa</h1>
+  
+  const{ product, cantidad, addProduct, removeProduct, minusProduct, clearCart, numberOfProducts, totalPrice } = useContext(contextoProducto);
+
+  return(
+    <>
+      hola 
+    </>
+  )
 }
 
 export default Cart;
