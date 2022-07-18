@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 export const ItemDetail = ({item}) => {  
 
   const [itemSell, setItemSell] = useState(false);
-
+  console.log(itemSell);
+  
   const onAdd = (count) => {
     setItemSell(true);
   }

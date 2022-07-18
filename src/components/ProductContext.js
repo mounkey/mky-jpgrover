@@ -10,8 +10,7 @@ const ProductContext = ({ children }) => {
   const [total, setTotal] = useState(0);
   
     useEffect(() => {
-   // numberOfProducts();
-    console.log(cartProduct);
+    numberOfProducts(); 
   }, [cartProduct]);
   
   const addProduct = (product, quantity) => {
@@ -22,8 +21,7 @@ const ProductContext = ({ children }) => {
     } else {
       setCartProduct([...cartProduct, { ...product }])
     }
-  }
-  
+  }  
 
   const removeProduct = (id) => {
     const newProduct = cartProduct.find((element) => element.id === id);
@@ -53,7 +51,8 @@ const ProductContext = ({ children }) => {
     });
     return totalPrice;
   }
-    
+
+
   return (
     <>
       <Provider value={{cartProduct, total, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice}}>
