@@ -4,7 +4,6 @@ import 'materialize-css/dist/css/materialize.css';
 import Count from './ItemCount';
 import { Link } from "react-router-dom";
 
-
 export const ItemDetail = ({item}) => {  
 
   const [itemSell, setItemSell] = useState(false);
@@ -31,7 +30,7 @@ export const ItemDetail = ({item}) => {
           </div>
           <div className="col s12">
             {
-              itemSell ? <Link to="/cart"><button className="waves-effect waves-light btn-large">Finalizar Compra</button></Link> : <Count stockInitial={5} onAdd= { onAdd } />
+              itemSell ? <Link to="/cart"><button className="waves-effect waves-light btn-large">Finalizar Compra</button></Link> : <Count item= {item} stockInitial={5} onAdd= { onAdd } />
             }
           </div>
         </div>

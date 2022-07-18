@@ -1,4 +1,4 @@
-import React, { Context }  from 'react';
+import React  from 'react';
 import './App.css';
 import 'materialize-css/dist/css/materialize.css';
 import NavBar from './components/NavBar';

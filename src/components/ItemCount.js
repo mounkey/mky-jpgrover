@@ -1,14 +1,17 @@
-import React, { useState} from 'react';
+import React, { useState, useContext} from 'react';
 import 'materialize-css/dist/css/materialize.css';
 import '../App.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus, faMinus, faPowerOff} from '@fortawesome/free-solid-svg-icons';
+import {contextoProducto} from './ProductContext';
 
-const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
+const ItemCount = ({item, stockInitial, initial = 0, onAdd}) => {
+
   const [contador, setContador] = useState(initial)
   const [stock, setStock] = useState(stockInitial)
 
-  
+  const { addProduct } = useContext(contextoProducto);
+
   const sumar = () => {  
     setContador(contador + 1)
     setStock(stock - 1);
@@ -43,9 +46,9 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
 
   }
 
-  const agregarAlCarrito = () => {
+ /* const agregarAlCarrito = () => {
     onAdd(contador);
-  }
+  }*/
 
   return(
     <div>
@@ -62,10 +65,11 @@ const ItemCount = ({stockInitial, initial = 0, onAdd}) => {
           <FontAwesomeIcon icon={faPowerOff}/>
         </button>
         <br/><h2>{avisarStock}</h2>
-        <button onClick={agregarAlCarrito}> Agregar al carrito </button>
+        <button onClick={() => addProduct({...item, quantity: contador})}> Agregar al carrito </button>
       </div>
     </div>
   )
 }
 
 export default ItemCount;
+

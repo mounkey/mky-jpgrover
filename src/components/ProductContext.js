@@ -10,28 +10,26 @@ const ProductContext = ({ children }) => {
   const [total, setTotal] = useState(0);
   
     useEffect(() => {
-    numberOfProducts();
+   // numberOfProducts();
     console.log(cartProduct);
   }, [cartProduct]);
   
-  const addProduct = (item, quantity) => {
-   
-      const newProduct = cartProduct.find((element) => element.id === item.id);
-      const index = cartProduct.indexOf(newProduct);
-      const aux = [...cartProduct];
-      aux[index].quantity += quantity;
-      if(isInList(item.id)){
-        setCartProduct(aux);
-      }else{
-        setCartProduct([...cartProduct, aux]);
-      }
-    }  
+  const addProduct = (product, quantity) => {
+    let item = cartProduct.find(item => item.id === product.id)
+    if (item) {
+      item.quantity += item.quantity + quantity;
+      setCartProduct([...cartProduct])
+    } else {
+      setCartProduct([...cartProduct, { ...product }])
+    }
+  }
+  
 
   const removeProduct = (id) => {
     const newProduct = cartProduct.find((element) => element.id === id);
     const index = cartProduct.indexOf(newProduct);
     const aux = [...cartProduct];
-    aux[index].quantity -= 1;
+    aux.splice(index, 1);
     setCartProduct(aux);
   }
 
@@ -52,16 +50,10 @@ const ProductContext = ({ children }) => {
     let totalPrice = 0; 
     cartProduct.forEach((element) => {
       totalPrice += element.price * element.quantity;
-    }
-    );
+    });
     return totalPrice;
   }
     
-  const isInList = (id) => {
-   return  cartProduct.same(item => item.id === id);  
-  
-  } 
-  
   return (
     <>
       <Provider value={{cartProduct, total, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice}}>
