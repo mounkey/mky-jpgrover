@@ -4,6 +4,8 @@ import 'materialize-css/dist/css/materialize.css';
 import ItemList from './ItemList';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from "react-router-dom";
+import { db } from '../firebase/firebase';
+import { getDocs, collection, query, where, getDoc } from "firebase/firestore";
 
 
 export const ItemListContainer =() =>  {
@@ -12,9 +14,33 @@ export const ItemListContainer =() =>  {
   const [cargar,setCargar] = useState(true)
 
   const {categoryID} = useParams();
-
+  
   useEffect(() => {
-    const URL = categoryID 
+    const productCollection = collection(db, 'Products');
+    //const productQuery = query(productCollection, where('category', '==', categoryID));
+
+    let reference
+    console.log(categoryID)
+    if (!categoryID) {
+      reference = collection(db, 'Products')
+    }
+    else{
+      reference = query(productCollection, where('category', '===',categoryID))
+    }
+    
+    getDocs(reference)
+     .then(result => {
+        const lista  = result.docs.map(element => {
+          return {
+            ...element.data(),
+          }
+        })
+      setSwSell(lista);
+     })
+     .catch(error => console.err)
+     .finally(() => setCargar(false));
+     console.log(reference)
+    /* const URL = categoryID 
     ? `https://fakestoreapi.com/products/category/${categoryID}` 
     : 'https://fakestoreapi.com/products';
     fetch(URL)
@@ -23,14 +49,14 @@ export const ItemListContainer =() =>  {
       .finally(() => setCargar(false))
       .catch((err) => {
         console.log(err);
-      });
+      });*/
     }, [categoryID]);
 
   return(
     <>
       {
         <main className="items">
-          <div className="parent">
+          <div className="parent" key={swSell.id}>
             {cargar ? <CircularProgress color="primary"/>:<ItemList product={swSell} />}
           </div>
         </main>
