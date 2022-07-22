@@ -5,7 +5,7 @@ import ItemList from './ItemList';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from "react-router-dom";
 import { db } from '../firebase/firebase';
-import { getDocs, collection, query, where, getDoc } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 
 export const ItemListContainer =() =>  {
@@ -21,11 +21,11 @@ export const ItemListContainer =() =>  {
 
     let reference
     console.log(categoryID)
-    if (!categoryID) {
+    if ( !categoryID ){
       reference = collection(db, 'Products')
     }
     else{
-      reference = query(productCollection, where('category', '===',categoryID))
+      reference = query(productCollection, where('category', '==',categoryID))
     }
     
     getDocs(reference)
@@ -36,10 +36,11 @@ export const ItemListContainer =() =>  {
           }
         })
       setSwSell(lista);
+      console.log(lista)
      })
      .catch(error => console.err)
      .finally(() => setCargar(false));
-     console.log(reference)
+     
     /* const URL = categoryID 
     ? `https://fakestoreapi.com/products/category/${categoryID}` 
     : 'https://fakestoreapi.com/products';
