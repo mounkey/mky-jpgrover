@@ -15,6 +15,7 @@ const Cart = () => {
         <table className="striped responsive-table">
           <thead>
             <tr>
+              <th>Imagen</th>
               <th>Producto</th>
               <th>Cantidad</th>
               <th>Precio</th>
@@ -27,7 +28,8 @@ const Cart = () => {
         {
           cartProduct.map(product => (
             <tr key={product.id}>
-              <td>{product.name}</td>
+              <td><img src={product.image} alt="item" className="cartImg responsive-img"/></td>
+              <td>{product.title}</td>
               <td>{product.quantity}</td>
               <td>{product.price}</td>
               <td>{product.quantity * product.price}</td>

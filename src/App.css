@@ -139,3 +139,9 @@
 .items{
   margin-top: 30px;
 }
+
+.cartImg{
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}

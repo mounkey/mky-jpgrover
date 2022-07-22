@@ -4,6 +4,8 @@ import 'materialize-css/dist/css/materialize.css';
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router-dom";
 import { LinearProgress } from "@mui/material";
+import { db } from '../firebase/firebase';
+import { getDoc, collection, doc  } from "firebase/firestore";
 
 export const ItemDetailContainer = (() =>  {
  
@@ -13,11 +15,25 @@ export const ItemDetailContainer = (() =>  {
    const {productID}= useParams();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productID}`)
+    const productCollection = collection(db, 'Products');
+    const referenceDoc = doc(productCollection, productID);
+    
+    getDoc(referenceDoc)
+    .then(result => {
+        const product = {
+          id: result.id,
+          ...result.data(),
+        }
+        setSwSell(product);
+    })
+    .catch(error => console.err)
+    .finally(() => setCargar(false));
+
+    /*fetch(`https://fakestoreapi.com/products/${productID}`)
       .then((res) => res.json())
       .then((data) => setSwSell(data))
       .catch((err) => console.log(err))
-      .finally(() => setCargar(false));
+      .finally(() => setCargar(false));*/
   }, [productID]);
 
   

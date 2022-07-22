@@ -8,6 +8,7 @@ const ProductContext = ({ children }) => {
 
   const [cartProduct, setCartProduct] = useState([]);
   const [total, setTotal] = useState(0);
+  const [stock, setStock] = useState(0);
   
     useEffect(() => {
     numberOfProducts(); 
@@ -52,10 +53,17 @@ const ProductContext = ({ children }) => {
     return totalPrice;
   }
 
+  const actualizarStock = (id, quantity) =>{
+    const newProduct = cartProduct.find((element) => element.id === id);
+    const index =  cartProduct.indexOf(newProduct);
+    const aux = [...cartProduct];
+    aux[index].stock -= quantity;
+    setStock(aux);
+  }
 
   return (
     <>
-      <Provider value={{cartProduct, total, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice}}>
+      <Provider value={{cartProduct, total, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice, actualizarStock}}>
         {children}
       </Provider>
     </>

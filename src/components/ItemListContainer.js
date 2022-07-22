@@ -32,12 +32,13 @@ export const ItemListContainer =() =>  {
      .then(result => {
         const lista  = result.docs.map(element => {
           return {
-            ...element.data(),
+            id: element.id,
+            ...element.data(), 
           }
         })
-      setSwSell(lista);
+      setSwSell(lista); 
       console.log(lista)
-     })
+    })
      .catch(error => console.err)
      .finally(() => setCargar(false));
      
