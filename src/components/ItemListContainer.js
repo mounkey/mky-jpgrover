@@ -20,7 +20,6 @@ export const ItemListContainer =() =>  {
     //const productQuery = query(productCollection, where('category', '==', categoryID));
 
     let reference
-    console.log(categoryID)
     if ( !categoryID ){
       reference = collection(db, 'Products')
     }
@@ -37,7 +36,6 @@ export const ItemListContainer =() =>  {
           }
         })
       setSwSell(lista); 
-      console.log(lista)
     })
      .catch(error => console.err)
      .finally(() => setCargar(false));

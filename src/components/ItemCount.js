@@ -4,6 +4,8 @@ import '../App.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus, faMinus, faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import {contextoProducto} from './ProductContext';
+import swal from 'sweetalert';
+
 
 const ItemCount = ({item, stockInitial, initial = 0, onAdd}) => {
 
@@ -39,7 +41,7 @@ const ItemCount = ({item, stockInitial, initial = 0, onAdd}) => {
       
     } 
     else{
-      alert('No podemos enviar su envio no hay stock');
+      swal('No podemos enviar su envio no hay stock', "Gracias", "error");
       setStock(0);
       setContador(contador)     
     }
