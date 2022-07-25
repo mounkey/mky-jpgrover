@@ -1,6 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import { db } from "../firebase/firebase";
-import { doc, collection, updateDoc, getDoc } from "firebase/firestore";
 
 export const contextoProducto = createContext();
 const { Provider } = contextoProducto;
@@ -9,7 +7,6 @@ const ProductContext = ({ children }) => {
 
   const [cartProduct, setCartProduct] = useState([]);
   const [total, setTotal] = useState(0);
-  const [stock, setStock] = useState(0);
   const [totalPrecio, setTotalPrecio] = useState(0);
   
     useEffect(() => {
@@ -56,27 +53,9 @@ const ProductContext = ({ children }) => {
     setTotalPrecio(totalPrice);
   }
 
-  const actualizarStock = (id, quantity) => {
-    let product;
-    const productCollection = collection(db, 'Products');
-    const referenceDoc = doc(productCollection, id);
-
-    getDoc(referenceDoc)
-    .then(result => {
-        product = {
-          id: result.id,
-          stock: result.data().stock - quantity,
-       }
-        updateDoc(referenceDoc, product)
-    })
- 
-  }
-
-  
-
-  return (
+   return (
     <>
-      <Provider value={{cartProduct, total, stock, totalPrecio, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice, actualizarStock}}>
+      <Provider value={{cartProduct, total, totalPrecio, addProduct, removeProduct, clearCart, numberOfProducts, totalPrice}}>
         {children}
       </Provider>
     </>
