@@ -51,7 +51,7 @@ const Cart = () => {
         </div>
         <br/>
         <div className="col s12">
-          {total === 0 ? <Link to="/"><button className="waves-effect waves-light btn">Volver</button></Link> : <Link to="/CartFinish"><button className="waves-effect waves-light btn">Finalizar Compra</button></Link>}
+          {total === 0 ? <Link to="/"><button className="waves-effect waves-light btn">Volver</button></Link> : <Link to="/cartFinish"><button className="waves-effect waves-light btn">Formulario de envio (Pre-Finalizacion)</button></Link>}
         </div>
         
         

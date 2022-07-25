@@ -1,22 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { db } from "../firebase/firebase";
 import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc } from "firebase/firestore"
 import { contextoProducto } from "./ProductContext";
 
-const CartFinish = ({items}) => {
+const CartFinish = () => {
 
   const{ cartProduct, totalPrecio, clearcard } = useContext(contextoProducto);
 
-  const datosComprador ={
-    nombre: "Juan",
-    apellido: "Perez",
-    email: "juan.perez@gmail.com"
-  }
-
+  const [form, setForm] = useState({});
+  
   const finalizarCompra = () => {
     const ventasCollection = collection(db, 'ventas');
     addDoc(ventasCollection, {
-      datosComprador,
+      form,
       items: cartProduct,
       date: serverTimestamp(),
       Total: totalPrecio,
@@ -46,13 +42,46 @@ const CartFinish = ({items}) => {
        }
         updateDoc(referenceDoc, product)
     })
- 
+  } 
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
   }
 
   return (
-    <div>
+    <>
+    <div className="container">
+      <h3>Formulario de Envio </h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='Name'>Name</label>
+        <input type="text" value={form.name} name= "nombre" onChange={handleChange} />
+        <label htmlFor='email'>Email</label>
+        <input type="text" value={form.email} name="email" onChange={handleChange} />
+        <label htmlFor='phone'>Phone</label>
+        <input type="text" value={form.phone} name="phone" onChange={handleChange} />
+        <label htmlFor='city'>City</label>
+        <input type="text" value={form.city} name="city" onChange={handleChange} />
+        <label htmlFor='address'>Address</label>
+        <input type="text" value={form.address} name="address" onChange={handleChange} />
+        <label htmlFor='zip'>Codigo de area</label>
+        <input type="text" value={form.zip} name="zip" onChange={handleChange} />
+        <label htmlFor='state'>Provincia</label>
+        <input type="text" value={form.state} name="state" onChange={handleChange} />
+        <label htmlFor='country'>Pais </label>
+        <input type="text" value={form.country} name="country" onChange={handleChange} />
+        <button type="submit">Enviar</button> 
+      </form>
       <button onClick={finalizarCompra}>Finalizar Compra</button>
     </div>
+    </>
   );
 }
 

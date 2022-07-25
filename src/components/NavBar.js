@@ -35,7 +35,7 @@ const Navbar = () => {
                   </li>
                 ))
               }
-              <li><Link to="/cart"> <Cart NumberSell={5}/></Link></li>
+              <li><Link to="/cart"> <Cart/></Link></li>
             </ul>
           </div>
         </nav>
