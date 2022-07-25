@@ -1,13 +1,14 @@
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAoT2hKHXZ9mE4xcSvfDG7qShoumHUbh0E",
-  authDomain: "mky-jpgrover.firebaseapp.com",
-  projectId: "mky-jpgrover",
-  storageBucket: "mky-jpgrover.appspot.com",
+  apiKey: process.env.REACT_APP_MKYjpg_apiKey,
+  authDomain: process.env.REACT_APP_MKYjpg_authDomain,
+  projectId: process.env.REACT_APP_MKYjpg_projectId,
+  storageBucket: process.env.REACT_APP_MKYjpg_storageBucket,
   messagingSenderId: "945386159509",
-  appId: "1:945386159509:web:63abac3ecfca4fc8934a9c"
+  appId: "1:945386159509:web:63abac3ecfca4fc8934a9c",
 };
 
 // Initialize Firebase
