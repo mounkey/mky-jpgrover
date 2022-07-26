@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductContext from './components/ProductContext';
 import CartFinish from './components/CartFinish';
+import Order from './components/Order';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/detail/:productID/" element={<ItemDetailContainer/>} /> 
             <Route path="/cart" element={<Cart/>} />
             <Route path="/cartFinish" element={<CartFinish/>} />
+            <Route path="/order/:id" element={<Order/>} />
           </Routes>
         </ProductContext>
       </BrowserRouter>

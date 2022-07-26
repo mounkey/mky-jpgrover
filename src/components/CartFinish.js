@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import { db } from "../firebase/firebase";
-import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc } from "firebase/firestore"
+import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc, query, where } from "firebase/firestore"
 import { contextoProducto } from "./ProductContext";
+import swal from 'sweetalert';
 
 const CartFinish = () => {
 
   const{ cartProduct, totalPrecio, clearCart } = useContext(contextoProducto);
 
   const [form, setForm] = useState({});
+  const [sendProducts, setSendProducts] = useState(false);
   
   const finalizarCompra = () => {
     const ventasCollection = collection(db, 'ventas');
@@ -15,12 +17,37 @@ const CartFinish = () => {
       form,
       items: cartProduct,
       date: serverTimestamp(),
-      Total: totalPrecio,
+      total: totalPrecio,
       IVA: totalPrecio * 0.19, //IVa en Chile es del 19%
-      TotalFinal: totalPrecio * 1.19, 
+      totalFinal: totalPrecio * 1.19, 
     })
+    let order = {
+      form,
+      items: cartProduct,
+      date: serverTimestamp(),
+      total: totalPrecio,
+      IVA: totalPrecio * 0.19, //IVa en Chile es del 19%
+      totalFinal: totalPrecio * 1.19,
+    };
     actualizarStockDb(cartProduct);
     clearCart();
+    validarStock(cartProduct.id, cartProduct.quantity);
+    obtenerIdVenta(order)
+  }
+
+  const obtenerIdVenta = (order) => {
+    const ventasCollection = collection(db, 'ventas');
+    const q = query(ventasCollection, where('totalFinal', '==', order.totalFinal), where('IVA', '==', order.IVA), where('Total', '==', order.Total),where("form.name", "==", order.form.name), where("form.lastName", "==", order.form.lastName), where("form.email", "==", order.form.email), where("form.address", "==", order.form.address), where("form.phone", "==", order.form.phone));  
+    getDoc(q)
+      .then(result => {
+        const lista  = result.docs.map(element => {
+          return {
+            id: element.id,
+            ...element.data(), 
+          }
+        })
+        setSendProducts(lista); 
+      }).catch(error => console.err)
   }
 
   const actualizarStockDb = (cartProduct) => {
@@ -44,6 +71,20 @@ const CartFinish = () => {
     })
   } 
 
+  const validarStock = (id, quantity) => {
+    let product;
+    const productCollection = collection(db, 'Products');
+    const referenceDoc = doc(productCollection, id);
+    getDoc(referenceDoc)
+    .then(result => {
+        product = {
+          id: result.id,
+          stock: result.data().stock - quantity,
+       }
+      product.stock < 0 ? swal("No hay stock suficiente", "Gracias", "Error") : swal("Compra realizada", "Gracias", "success");
+    })
+  }
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -54,6 +95,7 @@ const CartFinish = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     finalizarCompra();
+    
   }
 
   return (
