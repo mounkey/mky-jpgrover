@@ -5,7 +5,7 @@ import { contextoProducto } from "./ProductContext";
 
 const CartFinish = () => {
 
-  const{ cartProduct, totalPrecio, clearcard } = useContext(contextoProducto);
+  const{ cartProduct, totalPrecio, clearCart } = useContext(contextoProducto);
 
   const [form, setForm] = useState({});
   
@@ -20,7 +20,7 @@ const CartFinish = () => {
       TotalFinal: totalPrecio * 1.19, 
     })
     actualizarStockDb(cartProduct);
-    clearcard();
+    clearCart();
   }
 
   const actualizarStockDb = (cartProduct) => {
@@ -53,7 +53,7 @@ const CartFinish = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    finalizarCompra();
   }
 
   return (
@@ -79,7 +79,7 @@ const CartFinish = () => {
         <input type="text" value={form.country} name="country" onChange={handleChange} />
         <button type="submit">Enviar</button> 
       </form>
-      <button onClick={finalizarCompra}>Finalizar Compra</button>
+      
     </div>
     </>
   );
