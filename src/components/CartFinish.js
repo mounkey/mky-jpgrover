@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import { db } from "../firebase/firebase";
-import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc, query, where } from "firebase/firestore"
+import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc } from "firebase/firestore"
 import { contextoProducto } from "./ProductContext";
 import swal from 'sweetalert';
+import Order from "./Order";
+import { useNavigate } from "react-router-dom";
 
 const CartFinish = () => {
 
+  const Navigate = useNavigate();
+  let flag = 0;
   const{ cartProduct, totalPrecio, clearCart } = useContext(contextoProducto);
 
   const [form, setForm] = useState({});
@@ -17,38 +21,19 @@ const CartFinish = () => {
       form,
       items: cartProduct,
       date: serverTimestamp(),
-      total: totalPrecio,
+      Total: totalPrecio,
       IVA: totalPrecio * 0.19, //IVa en Chile es del 19%
-      totalFinal: totalPrecio * 1.19, 
+      TotalFinal: totalPrecio * 1.19, 
     })
-    let order = {
-      form,
-      items: cartProduct,
-      date: serverTimestamp(),
-      total: totalPrecio,
-      IVA: totalPrecio * 0.19, //IVa en Chile es del 19%
-      totalFinal: totalPrecio * 1.19,
-    };
-    actualizarStockDb(cartProduct);
-    clearCart();
-    validarStock(cartProduct.id, cartProduct.quantity);
-    obtenerIdVenta(order)
+    .then(({id}) => {
+      let orderid = id;
+      actualizarStockDb(cartProduct);
+      clearCart();
+      Navigate(`/order/${orderid}`);
+    })
+    .catch(error => console.err);
   }
 
-  const obtenerIdVenta = (order) => {
-    const ventasCollection = collection(db, 'ventas');
-    const q = query(ventasCollection, where('totalFinal', '==', order.totalFinal), where('IVA', '==', order.IVA), where('Total', '==', order.Total),where("form.name", "==", order.form.name), where("form.lastName", "==", order.form.lastName), where("form.email", "==", order.form.email), where("form.address", "==", order.form.address), where("form.phone", "==", order.form.phone));  
-    getDoc(q)
-      .then(result => {
-        const lista  = result.docs.map(element => {
-          return {
-            id: element.id,
-            ...element.data(), 
-          }
-        })
-        setSendProducts(lista); 
-      }).catch(error => console.err)
-  }
 
   const actualizarStockDb = (cartProduct) => {
     cartProduct.forEach((element) => {
@@ -60,7 +45,6 @@ const CartFinish = () => {
     let product;
     const productCollection = collection(db, 'Products');
     const referenceDoc = doc(productCollection, id);
-
     getDoc(referenceDoc)
     .then(result => {
         product = {
@@ -68,22 +52,10 @@ const CartFinish = () => {
           stock: result.data().stock - quantity,
        }
         updateDoc(referenceDoc, product)
+        product.stock < 0 ? swal("No hay stock suficiente", "Gracias", "Error") : swal("Compra realizada", "Gracias", "success");
     })
   } 
 
-  const validarStock = (id, quantity) => {
-    let product;
-    const productCollection = collection(db, 'Products');
-    const referenceDoc = doc(productCollection, id);
-    getDoc(referenceDoc)
-    .then(result => {
-        product = {
-          id: result.id,
-          stock: result.data().stock - quantity,
-       }
-      product.stock < 0 ? swal("No hay stock suficiente", "Gracias", "Error") : swal("Compra realizada", "Gracias", "success");
-    })
-  }
 
   const handleChange = (e) => {
     setForm({
@@ -95,8 +67,10 @@ const CartFinish = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     finalizarCompra();
-    
+    flag = 1
   }
+
+
 
   return (
     <>
@@ -123,6 +97,7 @@ const CartFinish = () => {
       </form>
       
     </div>
+    {flag === 1 ? <Order send={sendProducts} />: null}
     </>
   );
 }

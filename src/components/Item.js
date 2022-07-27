@@ -22,7 +22,8 @@ return (
           <p>Category: {item.category}</p>
         </div>
         <div className="col s12 m12 l12">
-        <Link to={`/detail/${item.id}`} className="waves-effect waves-light btn">Buy</Link>
+          { item.stock > 0 ? <Link to={`/detail/${item.id}`} className="waves-effect waves-light btn">Buy</Link>: <Link to={`/detail/${item.id}`} className="waves-effect waves-light btn disabled">Buy</Link>}
+        
         </div>
       </div>
     </>

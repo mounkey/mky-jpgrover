@@ -17,8 +17,7 @@ export const ItemListContainer =() =>  {
   
   useEffect(() => {
     const productCollection = collection(db, 'Products');
-    //const productQuery = query(productCollection, where('category', '==', categoryID));
-
+  
     let reference
     if ( !categoryID ){
       reference = collection(db, 'Products')

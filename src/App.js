@@ -23,7 +23,7 @@ function App() {
             <Route path="/detail/:productID/" element={<ItemDetailContainer/>} /> 
             <Route path="/cart" element={<Cart/>} />
             <Route path="/cartFinish" element={<CartFinish/>} />
-            <Route path="/order/:id" element={<Order/>} />
+            <Route path="/order/:orderID" element={<Order/>} />
           </Routes>
         </ProductContext>
       </BrowserRouter>
