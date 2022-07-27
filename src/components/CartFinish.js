@@ -26,12 +26,15 @@ const CartFinish = () => {
       TotalFinal: totalPrecio * 1.19, 
     })
     .then(({id}) => {
+      console.log(id);
       let orderid = id;
       actualizarStockDb(cartProduct);
       clearCart();
-      Navigate(`/order/${orderid}`);
+     Navigate(`/order/${orderid}`); 
+     ;
     })
     .catch(error => console.err);
+  
   }
 
 
