@@ -1,7 +1,6 @@
 import React from "react";
 
 const OrderInformations = ({ order }) => {
-  console.log(order);
   return (
     <>
       <ul>

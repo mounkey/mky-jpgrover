@@ -9,7 +9,20 @@ const ProductContext = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [totalPrecio, setTotalPrecio] = useState(0);
   
-    useEffect(() => {
+  //Get localStorage
+  useEffect(() => {
+    if(localStorage.getItem("cartProduct") !== null) {
+      setCartProduct(JSON.parse(localStorage.getItem("cartProduct")));
+    }
+  }, []);
+
+  //Load localStorage
+
+  useEffect(() => {
+    localStorage.setItem("cartProduct", JSON.stringify(cartProduct));
+  }, [cartProduct]);
+
+  useEffect(() => {
     numberOfProducts(); 
     totalPrice();    
   }, [cartProduct]);

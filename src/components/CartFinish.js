@@ -3,17 +3,15 @@ import { db } from "../firebase/firebase";
 import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc } from "firebase/firestore"
 import { contextoProducto } from "./ProductContext";
 import swal from 'sweetalert';
-import Order from "./Order";
 import { useNavigate } from "react-router-dom";
 
 const CartFinish = () => {
 
   const Navigate = useNavigate();
-  let flag = 0;
   const{ cartProduct, totalPrecio, clearCart } = useContext(contextoProducto);
 
   const [form, setForm] = useState({});
-  const [sendProducts, setSendProducts] = useState(false);
+
   
   const finalizarCompra = () => {
     const ventasCollection = collection(db, 'ventas');
@@ -30,13 +28,10 @@ const CartFinish = () => {
       let orderid = id;
       actualizarStockDb(cartProduct);
       clearCart();
-     Navigate(`/order/${orderid}`); 
-     ;
+      Navigate(`/order/${orderid}`); 
     })
-    .catch(error => console.err);
-  
+    .catch(error => console.err);  
   }
-
 
   const actualizarStockDb = (cartProduct) => {
     cartProduct.forEach((element) => {
@@ -70,7 +65,6 @@ const CartFinish = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     finalizarCompra();
-    flag = 1
   }
 
 
@@ -80,8 +74,8 @@ const CartFinish = () => {
     <div className="container">
       <h3>Formulario de Envio </h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='Name'>Name</label>
-        <input type="text" value={form.name} name= "nombre" onChange={handleChange} />
+        <label htmlFor='name'>Name</label>
+        <input type="text" value={form.name} name= "name" onChange={handleChange} />
         <label htmlFor='email'>Email</label>
         <input type="text" value={form.email} name="email" onChange={handleChange} />
         <label htmlFor='phone'>Phone</label>
@@ -93,14 +87,13 @@ const CartFinish = () => {
         <label htmlFor='zip'>Codigo de area</label>
         <input type="text" value={form.zip} name="zip" onChange={handleChange} />
         <label htmlFor='state'>Provincia</label>
-        <input type="text" value={form.state} name="state" onChange={handleChange} />
+        <input type="text" value={form.state} name= "state" onChange={handleChange} />
         <label htmlFor='country'>Pais </label>
         <input type="text" value={form.country} name="country" onChange={handleChange} />
         <button type="submit">Enviar</button> 
       </form>
       
     </div>
-    {flag === 1 ? <Order send={sendProducts} />: null}
     </>
   );
 }

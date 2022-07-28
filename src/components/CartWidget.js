@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import { contextoProducto } from './ProductContext';
 
-const CartWidget = ({NumberSell}) => {
+const CartWidget = () => {
   
  const {total} = useContext(contextoProducto);
   

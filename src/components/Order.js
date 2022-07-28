@@ -12,7 +12,7 @@ const Order = (() => {
   const { orderID } = useParams();
   const [order, setOrder] = useState({});
   const [person, setPerson] = useState({});
-  const [products, setProducts] = useState({});
+  const [products, setProducts] = useState ([]);
   
   useEffect(() => {
     const ventasCollection = collection(db, 'ventas');
@@ -28,7 +28,8 @@ const Order = (() => {
         setProducts(order.items);
     }).catch(error => console.err);
   }, [orderID]);
-  console.log(order, person, products);
+
+  
   return(
       <>
         <main>
@@ -64,7 +65,7 @@ const Order = (() => {
             <div className="card-content">
               <span className="card-title">Datos Productos</span>
               <div className="right-align">
-                
+                <OrderProducts order = {products} />
               </div>
             </div>
           </div>
