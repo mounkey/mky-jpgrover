@@ -10,7 +10,9 @@ const CartFinish = () => {
   const Navigate = useNavigate();
   const{ cartProduct, totalPrecio, clearCart } = useContext(contextoProducto);
 
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+
+  });
 
   
   const finalizarCompra = () => {
@@ -75,21 +77,21 @@ const CartFinish = () => {
       <h3>Formulario de Envio </h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>Name</label>
-        <input type="text" value={form.name} name= "name" onChange={handleChange} />
+        <input type="text" value={form.name ?? ''} name= "name" onChange={handleChange} />
         <label htmlFor='email'>Email</label>
-        <input type="text" value={form.email} name="email" onChange={handleChange} />
+        <input type="text" value={form.email ?? ''} name="email" onChange={handleChange} />
         <label htmlFor='phone'>Phone</label>
-        <input type="text" value={form.phone} name="phone" onChange={handleChange} />
+        <input type="text" value={form.phone ?? ''} name="phone" onChange={handleChange} />
         <label htmlFor='city'>City</label>
-        <input type="text" value={form.city} name="city" onChange={handleChange} />
+        <input type="text" value={form.city ?? ''} name="city" onChange={handleChange} />
         <label htmlFor='address'>Address</label>
-        <input type="text" value={form.address} name="address" onChange={handleChange} />
+        <input type="text" value={form.address ?? ''} name="address" onChange={handleChange} />
         <label htmlFor='zip'>Codigo de area</label>
-        <input type="text" value={form.zip} name="zip" onChange={handleChange} />
+        <input type="text" value={form.zip ?? ''} name="zip" onChange={handleChange} />
         <label htmlFor='state'>Provincia</label>
-        <input type="text" value={form.state} name= "state" onChange={handleChange} />
+        <input type="text" value={form.state ?? ''} name= "state" onChange={handleChange} />
         <label htmlFor='country'>Pais </label>
-        <input type="text" value={form.country} name="country" onChange={handleChange} />
+        <input type="text" value={form.country ?? ''} name="country" onChange={handleChange} />
         <button type="submit">Enviar</button> 
       </form>
       
