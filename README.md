@@ -1,70 +1,100 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  MKY-jpgrover, es un site que simula una tienda virtual con conexion a la base de datos cloud firestore de firebase, el cual es el desafio final del curso de React.js en Coderhouse 2022
+  <br>
+</h1>
+<br>
+<h4 align="center"><a href="http://www.coderhouse.com" target="_blank">Coderhouse</a>.</h4>
 
-## Available Scripts
+<p align="center">
+  <a href="https://es.reactjs.org/">
+    <img src="https://cdn-images-1.medium.com/max/1600/1*yk5D5cQB3jd7EiPzrDrD5w.png"
+         alt="React.JS" width='10%'>
+  </a>
+   <a href="https://materializecss.com/">
+    <img src="https://www.tooltyp.com/wp-content/uploads/2021/03/1900x920-materialize-el-framework-para-frontend-de-google.jpg"
+         alt="Materialize css" width='10%'>
+  </a>
+    <a href="https://firebase.google.com/">
+    <img src="https://firebase.google.com/images/social.png"
+         alt="Materialize css" width='10%'>
+  </a>
+  
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  Caracteristicas •
+  Como se usa •
+  Dependencias •
+  License
+</p>
 
-### `npm start`
+![screenshot](https://www.mounkey.cl/mky/imagen.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##Caracteristicas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Simula las etapas de una venta en linea
+  - Mostrar articulos para la venta
+  - Boton buy desactiva segun stock 
+  - Menu dinamico de secciones, obtencion de datos desde la Base de datos
+  - Formulario hecho en React
+  - Obtencion de datos desde base de datos
+  - Manejo de stock (descuenta los articulos seleccionados y actualiza en base de datos)
+  - Imagen dinamicas, establecido en base de datos como un elemento de la coleccion.
+  - Base de dato NOSQL 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como se usa 
 
-### `npm run build`
+Primero debes clonar el repositorio y despues correr la aplicacion. es necesario instalar [Git](https://git-scm.com) y  [Node.js](https://nodejs.org/en/download/) (que viene con [npm](http://npmjs.com)), ya instalado en tu equipo . Debes ir a la terminal o CMD y escribir estas lineas de comando:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clona el repositorio
+$ git clone https://github.com/mounkey/mky-jpgrover
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Entra al directorio
+$ cd mkn-jpgrover
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instala las dependencias
+$ npm install
 
-### `npm run eject`
+# Corre la aplicacion
+$ npm start
+```
+## Dependencias
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@material/circular-progress": "^14.0.0",
+    "@mui/material": "^5.8.7",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.9.0",
+    "font-awesome": "^4.7.0",
+    "materialize-css": "^1.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-fontawesome": "^1.7.1",
+    "react-preloaders": "^3.0.3",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
+    "sweetalert": "^2.1.2",
+    "web-vitals": "^2.1.4"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No te preocupes todas estas se instalaran en tu repositorio,
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+MIT
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> [Mounkey SPA](https://www.mounkey.cl) &nbsp;&middot;&nbsp;
+> GitHub [@mounkey](https://github.com/mounkey) &nbsp;&middot;&nbsp;
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
