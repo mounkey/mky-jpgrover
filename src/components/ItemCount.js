@@ -66,7 +66,7 @@ const ItemCount = ({item, stockInitial, initial = 0, onAdd}) => {
         <button onClick={reset}>
           <FontAwesomeIcon icon={faPowerOff}/>
         </button>
-        <br/><h2>{stock}</h2>
+        <br/><p>Gracias por su compra</p>
         <button onClick={() => addProduct({...item, quantity: contador}) ||  agregarAlCarrito()} > Agregar al carrito </button>
       </div>
     </div>
